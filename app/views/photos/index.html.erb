@@ -1,17 +1,6 @@
 <h1>Listing photos</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Tag</th>
-    <th>FrontPage</th>
-    <th>rank</th>
-    <th>Photo file</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
+<table class="photos_table">
 <%= form_tag photos_update_path, :method => :put do %>
   <tr>
     <th><%= submit_tag 'Save' %></th>
@@ -22,6 +11,17 @@
     <th></th>
   </tr>
   
+  <tr>
+    <th>Name</th>
+    <th>Tag</th>
+    <th>Front Page</th>
+    <th>Rank</th>
+    <th>Photo File</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
   <% for @photo in @photos %>
       <%= fields_for @photo do |f| %>
     <tr>

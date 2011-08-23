@@ -12,6 +12,11 @@ body {
   height: 80px;
 }
 
+.sign_out {
+  position: absolute;
+  z-index: 20;
+}
+
 .abouts {
   text-transform:uppercase;
   font-family: 'Nunito', sans-serif;
@@ -69,7 +74,7 @@ h1 {
   font-family: 'Dancing Script', cursive;
   font-size: 72px;
   margin-top: 60px;
-  color: rgba(67, 0, 122, 1);
+  color: rgba(67, 0, 90, 1);
 }
 
 h3 {
@@ -133,4 +138,6 @@ img {
   margin-top: 10%;
 }
 
-
+.photos_table {
+  margin-top: 50px;
+}
