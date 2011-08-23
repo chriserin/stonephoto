@@ -1,0 +1,43 @@
+<h1>Listing photos</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Tag</th>
+    <th>FrontPage</th>
+    <th>rank</th>
+    <th>Photo file</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<%= form_tag photos_update_path, :method => :put do %>
+  <tr>
+    <th><%= submit_tag 'Save' %></th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+  
+  <% for @photo in @photos %>
+      <%= fields_for @photo do |f| %>
+    <tr>
+      <td><%= f.text_field :name, {name: "photo[#{@photo.id}][name]"} %></td>
+      <td><%= f.text_field :tag , {name: "photo[#{@photo.id}][tag]"}%></td>
+      <td><%= f.check_box :front_page , {name: "photo[#{@photo.id}][front_page]"}%></td>
+      <td><%= f.text_field :rank , {name: "photo[#{@photo.id}][rank]"}%></td>
+      <td><%= image_tag @photo.photo_file.url(:thumb) %></td>
+      <td><%= link_to 'Show', @photo %></td>
+      <td><%= link_to 'Destroy', @photo, confirm: 'Are you sure?', method: :delete %></td>
+    </tr>
+    <% end %>
+<% end %>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Photo', new_photo_path %>

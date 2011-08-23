@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Stonephoto</title>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <link href='http://fonts.googleapis.com/css?family=Dancing+Script:700|Nunito' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<% if is_admin? %>
+  <div class="sign_out"><%= link_to 'sign out', session_destroy_path, method: :delete %></div>
+<% end %>
+<%= yield %>
+
+</body>
+</html>

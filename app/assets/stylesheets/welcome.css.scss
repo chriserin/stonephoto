@@ -1,0 +1,136 @@
+// Place all the styles related to the Welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+  background-color: rgba(246, 200, 219, 0.45);
+}
+
+.header {
+  width: 100%;
+  position: relative;
+  height: 80px;
+}
+
+.abouts {
+  text-transform:uppercase;
+  font-family: 'Nunito', sans-serif;
+  font-size: 12px;
+  margin: 0 auto;
+  height: 40px;
+  width: 80px;
+}
+
+.abouts_wrapper {
+  margin-left: 245px; 
+  margin-top: -41px;
+}
+
+.about {
+  display: inline;
+  margin: 5px;
+  cursor: pointer;
+  z-index: 50;
+  position: relative;
+}
+
+.about_meredith {
+  width: 500px;
+  margin: 0 auto;
+}
+
+.study {
+  text-transform: uppercase;
+  display: inline;
+  margin: 5px;
+  z-index: 50;
+  position: relative;
+  cursor: pointer;
+}
+
+.studies {
+  font-family: 'Nunito', sans-serif;
+  font-size: 12px;
+  font-style: bold;
+  margin: 0 auto;
+  height: 40px;
+  width: 400px;
+}
+
+.studies_wrapper {
+  margin-left: -75px;
+  margin-top: -26px;
+}
+
+h1 {
+  margin: 0 auto;
+  position: relative;
+  width: 400px;
+  font-family: 'Dancing Script', cursive;
+  font-size: 72px;
+  margin-top: 60px;
+  color: rgba(67, 0, 122, 1);
+}
+
+h3 {
+  margin: 0 auto;
+  position: relative;
+  font-family: 'Nunito', sans-serif;
+  font-size: 28px;
+  width: 400px;
+  margin-top: 30px;
+  text-align: right;
+  cursor: pointer;
+}
+
+.photo {
+  position: relative;
+  float: left;
+  display: inline;
+  margin-left: 10px;
+}
+
+.last_photo {
+  margin-right: 5px;
+}
+
+img {
+  margin-top: 0%;
+}
+
+.images {
+  position: absolute;
+  width: 100%;
+  height: 480px;
+  margin-top: 50px;
+  top: 100px;
+  left: 0px;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.images_wrapper {
+  width: 13000px;
+}
+
+.images_wrapper:last-child {
+  margin-right: 10px;
+}
+
+.big_display {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(150, 150, 150, .8);
+  z-index: 100;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.big_display img {
+  display: block;
+  margin: 0 auto;
+  margin-top: 10%;
+}
+
+
