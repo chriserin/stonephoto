@@ -52,6 +52,10 @@ jQuery ->
     )
   )
 
+  $.getJSON("photos.json?frontpage=IMAGES", (data) ->
+    show_photos_from_json(data)
+  )
+
 loading_colors = ["rgba(200, 10, 10, .3)", "rgba(10, 10, 200, .3)", "rgba(50, 100, 200, .3)", "rgba(10, 200, 200, .3)", "rgba(200, 100, 50, .3)", "rgba(100, 40, 100, .3)", "rgba(200, 150, 120, .3)", "rgba(50, 10, 110, .3)", "rgba(165, 90, 200, .3)", "rgba(110, 110, 0, .3)"]
 
 
