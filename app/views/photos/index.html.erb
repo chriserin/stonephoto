@@ -9,6 +9,8 @@
     <th></th>
     <th></th>
     <th></th>
+    <th></th>
+    <th></th>
   </tr>
   
   <tr>
@@ -16,6 +18,7 @@
     <th>Tag</th>
     <th>Front Page</th>
     <th>Rank</th>
+    <th>Image Width</th>
     <th>Photo File</th>
     <th></th>
     <th></th>
@@ -29,6 +32,7 @@
       <td><%= f.text_field :tag , {name: "photo[#{@photo.id}][tag]"}%></td>
       <td><%= f.check_box :front_page , {name: "photo[#{@photo.id}][front_page]"}%></td>
       <td><%= f.text_field :rank , {name: "photo[#{@photo.id}][rank]"}%></td>
+      <td><%= f.text_field :image_width , {name: "photo[#{@photo.id}][image_width]"}%></td>
       <td><%= image_tag @photo.photo_file.url(:thumb) %></td>
       <td><%= link_to 'Show', @photo %></td>
       <td><%= link_to 'Destroy', @photo, confirm: 'Are you sure?', method: :delete %></td>

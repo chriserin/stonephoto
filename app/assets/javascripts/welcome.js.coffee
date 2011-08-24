@@ -52,22 +52,24 @@ jQuery ->
     )
   )
 
+loading_colors = ["rgba(200, 10, 10, .3)", "rgba(10, 10, 200, .3)", "rgba(50, 100, 200, .3)", "rgba(10, 200, 200, .3)", "rgba(200, 100, 50, .3)", "rgba(100, 40, 100, .3)", "rgba(200, 150, 120, .3)", "rgba(50, 10, 110, .3)", "rgba(165, 90, 200, .3)", "rgba(110, 110, 0, .3)"]
+
+
 show_photos_from_json = (data) ->
   items = []
+  width = 0
   $.each(data, (index, photo) ->
-    items.push("<div class='photo'><img src='#{photo.medium_url}'></img></div>")
+    items.push("<div class='photo' style='width:#{photo.image_width}px'><div class='white_panel'></div><div class='color_panel' style='background-color:#{loading_colors[Math.floor(Math.random() * 10)]};'><div class='loading_label'>Loading</div></div><img src='#{photo.medium_url}'></img></div>")
+    width += photo.image_width
   )
   items[items.length - 1] = items[items.length - 1].replace('photo', 'photo last_photo')
 
+  $(".images_wrapper").width(width + items.length * 10)
   $(".images_wrapper").html(items.join(''))
 
-  $(".images_wrapper").width(items.length * 600)
-  width = 0
-  loaded = 0
   $("img").load( ->
-    width += this.clientWidth
-    loaded++
-    if loaded is items.length then $(".images_wrapper").width(width + items.length * 10)
+    $(this).siblings(".color_panel").fadeOut("slow")
+    $(this).siblings(".white_panel").fadeOut("slow")
   )
 
   $(".about_meredith").hide()

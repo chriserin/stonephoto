@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110823210557) do
+ActiveRecord::Schema.define(:version => 20110824190637) do
 
   create_table "authorizations", :force => true do |t|
     t.string   "provider"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(:version => 20110823210557) do
     t.datetime "updated_at"
     t.boolean  "front_page"
     t.integer  "rank",                    :default => 0
+    t.integer  "image_width"
   end
 
   create_table "users", :force => true do |t|

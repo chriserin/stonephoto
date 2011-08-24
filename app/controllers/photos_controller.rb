@@ -20,7 +20,7 @@ class PhotosController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render :json => @photos.to_json({:only => [:name], :methods => :medium_url}) }
+      format.json { render :json => @photos.to_json({:only => [:name, :image_width], :methods => :medium_url}) }
     end
   end
 
