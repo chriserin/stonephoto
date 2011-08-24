@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 body {
-  background-color: rgba(246, 200, 219, 0.45);
+  background-color: rgba(246, 200, 219, 0.25);
   width: 100%;
 }
 
@@ -99,6 +99,7 @@ h3 {
   margin-left: 10px;
   background-color: rgba(200, 0, 0, .4);
   height: 450px;
+  cursor: pointer;
 }
 
 .white_panel {
@@ -126,6 +127,11 @@ h3 {
   margin: 0 auto;
   width: 40px;
   margin-top: 225px;
+  font-size: 24px;
+  font-family: 'Nunito', sans-serif;
+}
+
+.loading_images {
   font-size: 24px;
   font-family: 'Nunito', sans-serif;
 }
@@ -175,5 +181,3 @@ img {
   margin-top: 600px;  
   color: gray;
 }
-
-

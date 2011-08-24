@@ -7,6 +7,7 @@ jQuery ->
   $(".big_display").hide()
   $(".about_meredith").hide()
   $(".contact_meredith").hide()
+  $(".loading_images").hide()
 
   $(".photo").live('click', ->
     $(".big_display").empty()
@@ -20,13 +21,17 @@ jQuery ->
   )
 
   $(".study").click( ->
+    $(".loading_images").show()
     $.getJSON("photos.json?study=#{$(this).text()}", (data) ->
+      $(".loading_images").hide()
       show_photos_from_json(data)
     )
   )
 
   $(".frontpage_images").click( ->
+    $(".loading_images").show()
     $.getJSON("photos.json?frontpage=#{$(this).text()}", (data) ->
+      $(".loading_images").hide()
       show_photos_from_json(data)
     )
   )
