@@ -8,10 +8,6 @@ jQuery ->
   $(".about_meredith").hide()
   $(".contact_meredith").hide()
 
-  $("img").click( ->
-    $(".big_display").show()
-  )
-
   $(".photo").live('click', ->
     $(".big_display").empty()
     $(".big_display").show()
@@ -46,7 +42,15 @@ jQuery ->
     $(".images").hide()
     $(".contact_meredith").show()
   )
-
+  width = 0
+  loaded = 0
+  $("img").each( (i, item) ->
+    $(item).load( ->
+      width += this.clientWidth
+      loaded++
+      if loaded is $("img").length then $(".images_wrapper").width(width + $("img").length * 10)
+    )
+  )
 
 show_photos_from_json = (data) ->
   items = []
@@ -58,6 +62,13 @@ show_photos_from_json = (data) ->
   $(".images_wrapper").html(items.join(''))
 
   $(".images_wrapper").width(items.length * 600)
+  width = 0
+  loaded = 0
+  $("img").load( ->
+    width += this.clientWidth
+    loaded++
+    if loaded is items.length then $(".images_wrapper").width(width + items.length * 10)
+  )
 
   $(".about_meredith").hide()
   $(".images").show()

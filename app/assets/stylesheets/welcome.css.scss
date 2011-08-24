@@ -4,6 +4,7 @@
 
 body {
   background-color: rgba(246, 200, 219, 0.45);
+  width: 100%;
 }
 
 .header {
@@ -22,13 +23,11 @@ body {
   font-family: 'Nunito', sans-serif;
   font-size: 12px;
   margin: 0 auto;
-  height: 40px;
-  width: 80px;
+  display: inline;
 }
 
 .abouts_wrapper {
-  margin-left: 245px; 
-  margin-top: -41px;
+  display: inline;
 }
 
 .about {
@@ -57,14 +56,11 @@ body {
   font-family: 'Nunito', sans-serif;
   font-size: 12px;
   font-style: bold;
-  margin: 0 auto;
-  height: 40px;
-  width: 400px;
+  display: inline;
 }
 
 .studies_wrapper {
-  margin-left: -75px;
-  margin-top: -26px;
+  display: inline;
 }
 
 h1 {
@@ -86,6 +82,14 @@ h3 {
   margin-top: 30px;
   text-align: right;
   cursor: pointer;
+  display: inline;
+}
+
+.nav {
+  margin: 30px auto 0;
+  padding-left: 34px;
+  width: 610px;
+  position: relative;
 }
 
 .photo {
@@ -93,10 +97,6 @@ h3 {
   float: left;
   display: inline;
   margin-left: 10px;
-}
-
-.last_photo {
-  margin-right: 5px;
 }
 
 img {
@@ -116,10 +116,6 @@ img {
 
 .images_wrapper {
   width: 13000px;
-}
-
-.images_wrapper:last-child {
-  margin-right: 10px;
 }
 
 .big_display {
