@@ -12,12 +12,12 @@ jQuery ->
   $(".loading_images").hide()
   
   $(".left_arrow_holder").click( ->
-    window.current_index += 1 unless window.current_index == window.current_images.length - 1
+    window.current_index -= 1 unless window.current_index is 0
     set_image_wrapper_margin()
   )
 
   $(".right_arrow_holder").click( ->
-    window.current_index -= 1 unless window.current_index is 0
+    window.current_index += 1 unless window.current_index == window.current_images.length - 1
     set_image_wrapper_margin()
   )
 
