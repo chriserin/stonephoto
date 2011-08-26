@@ -58,6 +58,7 @@ jQuery ->
     $(".images").hide()
     $(".contact_meredith").hide()
     $(".image_reps").hide()
+    $(".arrow_holder").hide()
   )
 
   $(".about_contact").click( ->
@@ -65,6 +66,7 @@ jQuery ->
     $(".images").hide()
     $(".contact_meredith").show()
     $(".image_reps").hide()
+    $(".arrow_holder").hide()
   )
   
   $(".images").touchwipe(
@@ -118,6 +120,8 @@ show_photos_from_json = (data) ->
   $(".about_meredith").hide()
   $(".images").show()
   $(".contact_meredith").hide()
+  $(".arrow_holder").show()
+  $(".image_reps").show()
   draw_image_reps()
   set_image_wrapper_margin()
 

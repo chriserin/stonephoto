@@ -38,9 +38,15 @@ body {
   position: relative;
 }
 
-.about_meredith {
-  width: 500px;
+.about_meredith, .contact_meredith {
+  width: 640px;
   margin: 0 auto;
+  p { font-size: 14px;}
+}
+
+.self_portrait {
+  float: right;
+  margin-left: 20px;
 }
 
 .study {
@@ -194,6 +200,8 @@ img {
   border-style: solid;
   border-width: 8px;
   border-color: white;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
   border-radius: 4px;
 }
 
@@ -204,6 +212,12 @@ img {
 .footer {
   margin-top: 600px;  
   color: gray;
+  width: 100%;
+}
+
+.copyright {
+  margin: 0 auto;
+  width: 228px;
 }
 
 .left_arrow_holder {
@@ -229,6 +243,8 @@ img {
 .arrow_circle {
   height: 40px;
   width: 40px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
   border-radius: 20px;
   background-color: rgba(200, 200, 200, .7);
   margin-top: 220px;
@@ -264,6 +280,8 @@ img {
   position: absolute;
   right: 0px;
   background-color: rgba(0,0,0,.9);
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
   border-radius: 4px;
   z-index: 60px;
 }
@@ -290,6 +308,8 @@ img {
 .image_rep {
   height: 20px;
   width: 20px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
   border-radius: 10px;
   background-color: rgba(67, 0, 90, .3);
   float: left;
