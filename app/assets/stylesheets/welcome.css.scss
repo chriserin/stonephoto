@@ -77,6 +77,10 @@ h1 {
   font-size: 72px;
   margin-top: 60px;
   color: rgba(67, 0, 90, 1);
+
+  a { text-decoration: none; }
+  a:visited { text-decoration: none; color: rgba(67, 0, 90, 1);}
+  a:hover { background-color: transparent; }
 }
 
 h3 {
