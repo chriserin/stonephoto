@@ -4,6 +4,7 @@
 
 window.current_images
 window.current_index = 0
+window.app = {}
 
 jQuery ->
   $(".big_display").hide()
@@ -38,35 +39,19 @@ jQuery ->
   )
 
   $(".study").click( ->
-    $(".loading_images").show()
-    $.getJSON("photos.json?study=#{$(this).text()}", (data) ->
-      $(".loading_images").hide()
-      show_photos_from_json(data)
-    )
+    window.stone_router.navigate($.trim($(this).text().split('&')[0]), true)
   )
 
   $(".frontpage_images").click( ->
-    $(".loading_images").show()
-    $.getJSON("photos.json?frontpage=#{$(this).text()}", (data) ->
-      $(".loading_images").hide()
-      show_photos_from_json(data)
-    )
+    window.stone_router.navigate("Images", true)
   )
 
   $(".about_about").click( ->
-    $(".about_meredith").show()
-    $(".images").hide()
-    $(".contact_meredith").hide()
-    $(".image_reps").hide()
-    $(".arrow_holder").hide()
+    window.stone_router.navigate("About", true)
   )
 
   $(".about_contact").click( ->
-    $(".about_meredith").hide()
-    $(".images").hide()
-    $(".contact_meredith").show()
-    $(".image_reps").hide()
-    $(".arrow_holder").hide()
+    window.stone_router.navigate("Contact", true)
   )
   
   $(".images").touchwipe(
@@ -94,11 +79,15 @@ jQuery ->
   $.getJSON("photos.json?frontpage=IMAGES", (data) ->
     show_photos_from_json(data)
   )
+  window.stone_router = new app.StoneRouter()
+  Backbone.history.start()
 
 loading_colors = ["rgba(200, 10, 10, .3)", "rgba(10, 10, 200, .3)", "rgba(50, 100, 200, .3)", "rgba(10, 200, 200, .3)", "rgba(200, 100, 50, .3)", "rgba(100, 40, 100, .3)", "rgba(200, 150, 120, .3)", "rgba(50, 10, 110, .3)", "rgba(165, 90, 200, .3)", "rgba(110, 110, 0, .3)"]
 
-
 show_photos_from_json = (data) ->
+  window.show_photos_from_json(data)
+
+window.show_photos_from_json = (data) ->
   window.current_images = data
   window.current_index = 0
   items = []
