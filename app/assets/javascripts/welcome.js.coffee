@@ -2,18 +2,35 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
+window.current_images
+window.current_index = 0
 
 jQuery ->
   $(".big_display").hide()
   $(".about_meredith").hide()
   $(".contact_meredith").hide()
   $(".loading_images").hide()
+  
+  $(".left_arrow_holder").click( ->
+    window.current_index += 1 unless window.current_index == window.current_images.length - 1
+    set_image_wrapper_margin()
+  )
+
+  $(".right_arrow_holder").click( ->
+    window.current_index -= 1 unless window.current_index is 0
+    set_image_wrapper_margin()
+  )
+
+  $(".image_rep").live('click', ->
+    window.current_index = $(".image_rep").index(this)
+    set_image_wrapper_margin()
+  )
 
   $(".photo").live('click', ->
     $(".big_display").empty()
     $(".big_display").show()
     src = $(this).find("img").attr("src")
-    $(".big_display").append("<img src='#{src.replace('medium', 'big_display')}'></img>")
+    $(".big_display").append("<img class='big_display_photo' src='#{src.replace('medium', 'big_display')}'></img>")
   )
 
   $(".big_display").click( ->
@@ -40,13 +57,28 @@ jQuery ->
     $(".about_meredith").show()
     $(".images").hide()
     $(".contact_meredith").hide()
+    $(".image_reps").hide()
   )
 
   $(".about_contact").click( ->
     $(".about_meredith").hide()
     $(".images").hide()
     $(".contact_meredith").show()
+    $(".image_reps").hide()
   )
+  
+  $(".images").touchwipe(
+    {
+      wipeLeft: ->
+        window.current_index += 1 unless window.current_index == window.current_images.length - 1
+        set_image_wrapper_margin()
+      wipeRight: ->
+        window.current_index -= 1 unless window.current_index is 0
+        set_image_wrapper_margin()
+    }
+  )
+  
+
   width = 0
   loaded = 0
   $("img").each( (i, item) ->
@@ -65,6 +97,8 @@ loading_colors = ["rgba(200, 10, 10, .3)", "rgba(10, 10, 200, .3)", "rgba(50, 10
 
 
 show_photos_from_json = (data) ->
+  window.current_images = data
+  window.current_index = 0
   items = []
   width = 0
   $.each(data, (index, photo) ->
@@ -84,3 +118,25 @@ show_photos_from_json = (data) ->
   $(".about_meredith").hide()
   $(".images").show()
   $(".contact_meredith").hide()
+  draw_image_reps()
+  set_image_wrapper_margin()
+
+set_image_wrapper_margin = ->
+  if window.current_index is 0
+    margin_left = 10
+  else
+    margin_left = 0
+  for index in [0..window.current_images.length - 1]
+    if(index is window.current_index)
+      break
+    margin_left += window.current_images[index].image_width + 10
+  $(".images_wrapper").animate({marginLeft: "#{-(margin_left - 60)}px" }, 300 )
+  draw_image_reps()
+
+draw_image_reps = ->
+  $(".image_reps_wrapper").empty()
+  $(".image_reps_wrapper").width(28 * window.current_images.length)
+  $.each(window.current_images, (index, photo) ->
+    $(".image_reps_wrapper").append("<div class='image_rep'></div>")
+  )
+  $($(".image_rep")[window.current_index]).css("background-color", "rgba(67, 0, 90, 1)")
