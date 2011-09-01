@@ -12,12 +12,20 @@ jQuery ->
   $(".contact_meredith").hide()
   $(".loading_images").hide()
   
+  $(document).keydown( (event) ->
+    switch event.keyCode 
+      when 37
+        window.current_index -= 1 unless window.current_index is 0
+        set_image_wrapper_margin()
+      when 39
+        window.current_index += 1 unless window.current_index == window.current_images.length - 1
+        set_image_wrapper_margin()
+  )
+  
   $(".left_arrow_holder").click( ->
     if(window.stop_click)
       window.stop_click = false
       return
-    window.current_index -= 1 unless window.current_index is 0
-    set_image_wrapper_margin()
   )
 
   $(".right_arrow_holder").click( ->
