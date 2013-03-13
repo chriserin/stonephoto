@@ -4,9 +4,9 @@ Stonephoto::Application.routes.draw do
   resources :photos
 
   root :to => 'welcome#index'
-  match 'photos' => 'photos#update', :via => :put, :as => 'photos_update'
-  match '/auth/:provider/callback', to: 'sessions#create'
-  match '/session', via: :delete, as: 'session_destroy', to: 'sessions#destroy'
+  put 'photos' => 'photos#update', :as => 'photos_update'
+  get '/auth/:provider/callback', to: 'sessions#create'
+  delete '/session', as: 'session_destroy', to: 'sessions#destroy'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

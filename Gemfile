@@ -1,34 +1,28 @@
 source 'http://rubygems.org'
 
-gem 'rails', '~> 3.1.0' 
-gem 'sprockets'
-# Bundle edge Rails instead:
-# gem 'rails',     :git => 'git://github.com/rails/rails.git'
+ruby '2.0.0'
 
-#gem 'omniauth', :git => 'git://github.com/intridea/omniauth.git'
+gem 'rails', '4.0.0beta1' 
+gem 'sprockets'
 gem 'omniauth'
-gem 'twitter'
+#gem 'twitter'
 # Asset template engines
-gem 'sass-rails'
-gem 'coffee-script'
-gem 'uglifier'
+group :assets do
+  gem 'sass-rails',   '~> 4.0.0.beta1'
+  gem 'coffee-rails', '~> 4.0.0.beta1'
+
+  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
+  # gem 'therubyracer', platforms: :ruby
+
+  gem 'uglifier', '>= 1.0.3'
+end
 
 gem 'jquery-rails'
 gem 'rails-backbone'
-# Use unicorn as the web server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'ruby-debug19', :require => 'ruby-debug'
 
 group :test do
-  # Pretty printed test output
   gem 'turn', :require => false
 end
-
 
 gem 'paperclip'
 gem 'aws-s3'

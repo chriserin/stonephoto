@@ -1,1 +1,1 @@
-rvm use dh@stonephoto
+rvm use r2@stonephoto --create
